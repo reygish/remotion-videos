@@ -1,0 +1,13 @@
+{
+  "voice": "af_heart",
+  "speed": 1.08,
+  "scenes": {
+    "hook": {"text": "What if the Sun was one degree hotter?", "captions": false},
+    "surface": {"text": "The Sun's surface is about 5,500 degrees Celsius. One degree more is just zero point zero one seven percent."},
+    "energy": {"text": "But its energy grows with temperature to the fourth power, so that's about zero point zero seven percent more sunlight."},
+    "cycle": {"text": "That's less than the Sun's own eleven-year cycle, which swings about zero point one percent. Earth would warm a tenth of a degree. Humans already added one point two."},
+    "onepercent": {"text": "But one percent hotter? Output jumps 4 percent, a push several times bigger than ours. Several degrees of warming, melting ice, rising seas."},
+    "tenpercent": {"text": "Ten percent hotter? Output soars 46 percent. Earth could tip into a runaway greenhouse like Venus, and boil its oceans away."},
+    "ending": {"text": "The twist? The Sun brightens about one percent every 100 million years. In a billion years, it'll be ten percent brighter, and our oceans start to evaporate. So one degree? Barely noticeable. Follow for more what-ifs."}
+  }
+}

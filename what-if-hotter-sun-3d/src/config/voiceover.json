@@ -1,0 +1,827 @@
+{
+  "voice": "af_heart",
+  "scenes": {
+    "hook": {
+      "duration": 2.425,
+      "captions": false,
+      "words": [
+        {
+          "text": "What",
+          "start": 0.25,
+          "end": 0.388
+        },
+        {
+          "text": "if",
+          "start": 0.388,
+          "end": 0.512
+        },
+        {
+          "text": "the",
+          "start": 0.512,
+          "end": 0.637
+        },
+        {
+          "text": "Sun",
+          "start": 0.637,
+          "end": 0.925
+        },
+        {
+          "text": "was",
+          "start": 0.925,
+          "end": 1.113
+        },
+        {
+          "text": "one",
+          "start": 1.113,
+          "end": 1.312
+        },
+        {
+          "text": "degree",
+          "start": 1.312,
+          "end": 1.6
+        },
+        {
+          "text": "hotter?",
+          "start": 1.6,
+          "end": 2.15
+        }
+      ]
+    },
+    "surface": {
+      "duration": 8.025,
+      "captions": true,
+      "words": [
+        {
+          "text": "The",
+          "start": 0.225,
+          "end": 0.338
+        },
+        {
+          "text": "Sun's",
+          "start": 0.338,
+          "end": 0.65
+        },
+        {
+          "text": "surface",
+          "start": 0.65,
+          "end": 1.238
+        },
+        {
+          "text": "is",
+          "start": 1.238,
+          "end": 1.363
+        },
+        {
+          "text": "about",
+          "start": 1.363,
+          "end": 1.688
+        },
+        {
+          "text": "5,500",
+          "start": 1.688,
+          "end": 2.8
+        },
+        {
+          "text": "degrees",
+          "start": 2.8,
+          "end": 3.125
+        },
+        {
+          "text": "Celsius.",
+          "start": 3.125,
+          "end": 4.075
+        },
+        {
+          "text": "One",
+          "start": 4.213,
+          "end": 4.412
+        },
+        {
+          "text": "degree",
+          "start": 4.412,
+          "end": 4.7
+        },
+        {
+          "text": "more",
+          "start": 4.7,
+          "end": 5.025
+        },
+        {
+          "text": "is",
+          "start": 5.025,
+          "end": 5.175
+        },
+        {
+          "text": "just",
+          "start": 5.175,
+          "end": 5.388
+        },
+        {
+          "text": "zero",
+          "start": 5.388,
+          "end": 5.75
+        },
+        {
+          "text": "point",
+          "start": 5.75,
+          "end": 6.037
+        },
+        {
+          "text": "zero",
+          "start": 6.037,
+          "end": 6.475
+        },
+        {
+          "text": "one",
+          "start": 6.475,
+          "end": 6.787
+        },
+        {
+          "text": "seven",
+          "start": 6.787,
+          "end": 7.125
+        },
+        {
+          "text": "percent.",
+          "start": 7.125,
+          "end": 7.8
+        }
+      ]
+    },
+    "energy": {
+      "duration": 7.2,
+      "captions": true,
+      "words": [
+        {
+          "text": "But",
+          "start": 0.225,
+          "end": 0.338
+        },
+        {
+          "text": "its",
+          "start": 0.338,
+          "end": 0.487
+        },
+        {
+          "text": "energy",
+          "start": 0.487,
+          "end": 0.925
+        },
+        {
+          "text": "grows",
+          "start": 0.925,
+          "end": 1.337
+        },
+        {
+          "text": "with",
+          "start": 1.337,
+          "end": 1.5
+        },
+        {
+          "text": "temperature",
+          "start": 1.5,
+          "end": 1.975
+        },
+        {
+          "text": "to",
+          "start": 1.975,
+          "end": 2.062
+        },
+        {
+          "text": "the",
+          "start": 2.062,
+          "end": 2.15
+        },
+        {
+          "text": "fourth",
+          "start": 2.15,
+          "end": 2.425
+        },
+        {
+          "text": "power,",
+          "start": 2.425,
+          "end": 3.075
+        },
+        {
+          "text": "so",
+          "start": 3.175,
+          "end": 3.35
+        },
+        {
+          "text": "that's",
+          "start": 3.35,
+          "end": 3.612
+        },
+        {
+          "text": "about",
+          "start": 3.612,
+          "end": 3.938
+        },
+        {
+          "text": "zero",
+          "start": 3.938,
+          "end": 4.3
+        },
+        {
+          "text": "point",
+          "start": 4.3,
+          "end": 4.575
+        },
+        {
+          "text": "zero",
+          "start": 4.575,
+          "end": 5.125
+        },
+        {
+          "text": "seven",
+          "start": 5.125,
+          "end": 5.525
+        },
+        {
+          "text": "percent",
+          "start": 5.525,
+          "end": 5.975
+        },
+        {
+          "text": "more",
+          "start": 5.975,
+          "end": 6.2
+        },
+        {
+          "text": "sunlight.",
+          "start": 6.2,
+          "end": 6.95
+        }
+      ]
+    },
+    "cycle": {
+      "duration": 10.025,
+      "captions": true,
+      "words": [
+        {
+          "text": "That's",
+          "start": 0.25,
+          "end": 0.525
+        },
+        {
+          "text": "less",
+          "start": 0.525,
+          "end": 0.75
+        },
+        {
+          "text": "than",
+          "start": 0.75,
+          "end": 0.863
+        },
+        {
+          "text": "the",
+          "start": 0.863,
+          "end": 0.988
+        },
+        {
+          "text": "Sun's",
+          "start": 0.988,
+          "end": 1.375
+        },
+        {
+          "text": "own",
+          "start": 1.375,
+          "end": 1.55
+        },
+        {
+          "text": "eleven-year",
+          "start": 1.55,
+          "end": 2.125
+        },
+        {
+          "text": "cycle,",
+          "start": 2.125,
+          "end": 2.725
+        },
+        {
+          "text": "which",
+          "start": 2.8,
+          "end": 3.013
+        },
+        {
+          "text": "swings",
+          "start": 3.013,
+          "end": 3.362
+        },
+        {
+          "text": "about",
+          "start": 3.362,
+          "end": 3.663
+        },
+        {
+          "text": "zero",
+          "start": 3.663,
+          "end": 4.062
+        },
+        {
+          "text": "point",
+          "start": 4.062,
+          "end": 4.35
+        },
+        {
+          "text": "one",
+          "start": 4.35,
+          "end": 4.525
+        },
+        {
+          "text": "percent.",
+          "start": 4.525,
+          "end": 5.3
+        },
+        {
+          "text": "Earth",
+          "start": 5.438,
+          "end": 5.75
+        },
+        {
+          "text": "would",
+          "start": 5.75,
+          "end": 5.925
+        },
+        {
+          "text": "warm",
+          "start": 5.925,
+          "end": 6.2
+        },
+        {
+          "text": "a",
+          "start": 6.2,
+          "end": 6.312
+        },
+        {
+          "text": "tenth",
+          "start": 6.312,
+          "end": 6.588
+        },
+        {
+          "text": "of",
+          "start": 6.588,
+          "end": 6.662
+        },
+        {
+          "text": "a",
+          "start": 6.662,
+          "end": 6.725
+        },
+        {
+          "text": "degree.",
+          "start": 6.725,
+          "end": 7.425
+        },
+        {
+          "text": "Humans",
+          "start": 7.588,
+          "end": 8.0
+        },
+        {
+          "text": "already",
+          "start": 8.0,
+          "end": 8.375
+        },
+        {
+          "text": "added",
+          "start": 8.375,
+          "end": 8.713
+        },
+        {
+          "text": "one",
+          "start": 8.713,
+          "end": 8.95
+        },
+        {
+          "text": "point",
+          "start": 8.95,
+          "end": 9.262
+        },
+        {
+          "text": "two.",
+          "start": 9.262,
+          "end": 9.775
+        }
+      ]
+    },
+    "onepercent": {
+      "duration": 9.5,
+      "captions": true,
+      "words": [
+        {
+          "text": "But",
+          "start": 0.225,
+          "end": 0.35
+        },
+        {
+          "text": "one",
+          "start": 0.35,
+          "end": 0.575
+        },
+        {
+          "text": "percent",
+          "start": 0.575,
+          "end": 0.925
+        },
+        {
+          "text": "hotter?",
+          "start": 0.925,
+          "end": 1.5
+        },
+        {
+          "text": "Output",
+          "start": 1.663,
+          "end": 2.112
+        },
+        {
+          "text": "jumps",
+          "start": 2.112,
+          "end": 2.425
+        },
+        {
+          "text": "4",
+          "start": 2.425,
+          "end": 2.65
+        },
+        {
+          "text": "percent,",
+          "start": 2.65,
+          "end": 3.2
+        },
+        {
+          "text": "a",
+          "start": 3.275,
+          "end": 3.375
+        },
+        {
+          "text": "push",
+          "start": 3.375,
+          "end": 3.712
+        },
+        {
+          "text": "several",
+          "start": 3.712,
+          "end": 4.05
+        },
+        {
+          "text": "times",
+          "start": 4.05,
+          "end": 4.438
+        },
+        {
+          "text": "bigger",
+          "start": 4.438,
+          "end": 4.75
+        },
+        {
+          "text": "than",
+          "start": 4.75,
+          "end": 4.9
+        },
+        {
+          "text": "ours.",
+          "start": 4.9,
+          "end": 5.725
+        },
+        {
+          "text": "Several",
+          "start": 5.875,
+          "end": 6.225
+        },
+        {
+          "text": "degrees",
+          "start": 6.225,
+          "end": 6.638
+        },
+        {
+          "text": "of",
+          "start": 6.638,
+          "end": 6.725
+        },
+        {
+          "text": "warming,",
+          "start": 6.725,
+          "end": 7.175
+        },
+        {
+          "text": "melting",
+          "start": 7.263,
+          "end": 7.7
+        },
+        {
+          "text": "ice,",
+          "start": 7.7,
+          "end": 8.05
+        },
+        {
+          "text": "rising",
+          "start": 8.137,
+          "end": 8.613
+        },
+        {
+          "text": "seas.",
+          "start": 8.613,
+          "end": 9.25
+        }
+      ]
+    },
+    "tenpercent": {
+      "duration": 8.675,
+      "captions": true,
+      "words": [
+        {
+          "text": "Ten",
+          "start": 0.225,
+          "end": 0.45
+        },
+        {
+          "text": "percent",
+          "start": 0.45,
+          "end": 0.8
+        },
+        {
+          "text": "hotter?",
+          "start": 0.8,
+          "end": 1.35
+        },
+        {
+          "text": "Output",
+          "start": 1.488,
+          "end": 1.95
+        },
+        {
+          "text": "soars",
+          "start": 1.95,
+          "end": 2.362
+        },
+        {
+          "text": "46",
+          "start": 2.362,
+          "end": 3.025
+        },
+        {
+          "text": "percent.",
+          "start": 3.025,
+          "end": 3.8
+        },
+        {
+          "text": "Earth",
+          "start": 3.938,
+          "end": 4.25
+        },
+        {
+          "text": "could",
+          "start": 4.25,
+          "end": 4.438
+        },
+        {
+          "text": "tip",
+          "start": 4.438,
+          "end": 4.662
+        },
+        {
+          "text": "into",
+          "start": 4.662,
+          "end": 4.9
+        },
+        {
+          "text": "a",
+          "start": 4.9,
+          "end": 5.013
+        },
+        {
+          "text": "runaway",
+          "start": 5.013,
+          "end": 5.45
+        },
+        {
+          "text": "greenhouse",
+          "start": 5.45,
+          "end": 6.0
+        },
+        {
+          "text": "like",
+          "start": 6.0,
+          "end": 6.225
+        },
+        {
+          "text": "Venus,",
+          "start": 6.225,
+          "end": 6.775
+        },
+        {
+          "text": "and",
+          "start": 6.85,
+          "end": 6.987
+        },
+        {
+          "text": "boil",
+          "start": 6.987,
+          "end": 7.287
+        },
+        {
+          "text": "its",
+          "start": 7.287,
+          "end": 7.425
+        },
+        {
+          "text": "oceans",
+          "start": 7.425,
+          "end": 7.825
+        },
+        {
+          "text": "away.",
+          "start": 7.825,
+          "end": 8.45
+        }
+      ]
+    },
+    "ending": {
+      "duration": 13.7,
+      "captions": true,
+      "words": [
+        {
+          "text": "The",
+          "start": 0.225,
+          "end": 0.338
+        },
+        {
+          "text": "twist?",
+          "start": 0.338,
+          "end": 0.925
+        },
+        {
+          "text": "The",
+          "start": 1.025,
+          "end": 1.163
+        },
+        {
+          "text": "Sun",
+          "start": 1.163,
+          "end": 1.475
+        },
+        {
+          "text": "brightens",
+          "start": 1.475,
+          "end": 1.837
+        },
+        {
+          "text": "about",
+          "start": 1.837,
+          "end": 2.1
+        },
+        {
+          "text": "one",
+          "start": 2.1,
+          "end": 2.325
+        },
+        {
+          "text": "percent",
+          "start": 2.325,
+          "end": 2.8
+        },
+        {
+          "text": "every",
+          "start": 2.8,
+          "end": 3.1
+        },
+        {
+          "text": "100",
+          "start": 3.1,
+          "end": 3.7
+        },
+        {
+          "text": "million",
+          "start": 3.7,
+          "end": 4.05
+        },
+        {
+          "text": "years.",
+          "start": 4.05,
+          "end": 4.775
+        },
+        {
+          "text": "In",
+          "start": 4.888,
+          "end": 4.987
+        },
+        {
+          "text": "a",
+          "start": 4.987,
+          "end": 5.062
+        },
+        {
+          "text": "billion",
+          "start": 5.062,
+          "end": 5.45
+        },
+        {
+          "text": "years,",
+          "start": 5.45,
+          "end": 5.9
+        },
+        {
+          "text": "it'll",
+          "start": 5.975,
+          "end": 6.175
+        },
+        {
+          "text": "be",
+          "start": 6.175,
+          "end": 6.362
+        },
+        {
+          "text": "ten",
+          "start": 6.362,
+          "end": 6.625
+        },
+        {
+          "text": "percent",
+          "start": 6.625,
+          "end": 6.975
+        },
+        {
+          "text": "brighter,",
+          "start": 6.975,
+          "end": 7.45
+        },
+        {
+          "text": "and",
+          "start": 7.525,
+          "end": 7.638
+        },
+        {
+          "text": "our",
+          "start": 7.638,
+          "end": 7.775
+        },
+        {
+          "text": "oceans",
+          "start": 7.775,
+          "end": 8.225
+        },
+        {
+          "text": "start",
+          "start": 8.225,
+          "end": 8.45
+        },
+        {
+          "text": "to",
+          "start": 8.45,
+          "end": 8.575
+        },
+        {
+          "text": "evaporate.",
+          "start": 8.575,
+          "end": 9.5
+        },
+        {
+          "text": "So",
+          "start": 9.65,
+          "end": 9.875
+        },
+        {
+          "text": "one",
+          "start": 9.875,
+          "end": 10.075
+        },
+        {
+          "text": "degree?",
+          "start": 10.075,
+          "end": 10.625
+        },
+        {
+          "text": "Barely",
+          "start": 10.787,
+          "end": 11.175
+        },
+        {
+          "text": "noticeable.",
+          "start": 11.175,
+          "end": 11.925
+        },
+        {
+          "text": "Follow",
+          "start": 12.037,
+          "end": 12.425
+        },
+        {
+          "text": "for",
+          "start": 12.425,
+          "end": 12.55
+        },
+        {
+          "text": "more",
+          "start": 12.55,
+          "end": 12.775
+        },
+        {
+          "text": "what-ifs.",
+          "start": 12.775,
+          "end": 13.475
+        }
+      ]
+    }
+  }
+}

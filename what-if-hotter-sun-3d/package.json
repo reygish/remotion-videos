@@ -1,0 +1,30 @@
+{
+  "name": "what-if-hotter-sun-3d",
+  "version": "1.0.0",
+  "description": "3D version of What if the Sun was one degree hotter? (Remotion + Three.js)",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts WhatIfHotterSun3D out/what-if-hotter-sun-3d.mp4 --codec=h264 --gl=angle",
+    "typecheck": "tsc -p ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@react-three/fiber": "^8.17.10",
+    "@remotion/cli": "^4.0.530",
+    "@remotion/three": "^4.0.530",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.530",
+    "three": "^0.160.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/three": "^0.160.0",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
