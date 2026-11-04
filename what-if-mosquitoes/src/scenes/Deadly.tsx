@@ -3,16 +3,20 @@ import {Easing, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remo
 import {FONT} from '../config/theme';
 import {SCENES} from '../config/scenes';
 import {clamp} from '../lib/math';
+import {cue} from '../lib/voiceover';
 import {SceneFrame} from '../components/SceneFrame';
-import {Caption} from '../components/Caption';
 import {Headline} from '../components/Headline';
 
 /** "Deadliest animal" scene: a counter ticks up to 600,000 malaria deaths, then disease pills pop in. */
 export const Deadly: React.FC = () => {
   const f = useCurrentFrame();
+  // Counter starts on "Malaria" and lands on "600,000"; pills pop on "dengue".
+  const countFrom = cue('deadly', 'Malaria');
+  const countTo = cue('deadly', '600,000') + 8;
+  const pillsAt = cue('deadly', 'dengue');
   const {fps} = useVideoConfig();
   const count = Math.round(
-    interpolate(f, [30, 120], [0, 600000], {...clamp, easing: Easing.out(Easing.cubic)})
+    interpolate(f, [countFrom, countTo], [0, 600000], {...clamp, easing: Easing.out(Easing.cubic)})
   );
   const diseases = ['MALARIA', 'DENGUE', 'ZIKA', 'WEST NILE', 'YELLOW FEVER'];
   const pulse = 1 + Math.sin(f / 5) * 0.02;
@@ -50,7 +54,7 @@ export const Deadly: React.FC = () => {
           fontWeight: 700,
           fontSize: 50,
           color: 'white',
-          opacity: interpolate(f, [60, 80], [0, 1], clamp),
+          opacity: interpolate(f, [countTo - 10, countTo + 10], [0, 1], clamp),
         }}
       >
         deaths a year from malaria alone
@@ -68,7 +72,7 @@ export const Deadly: React.FC = () => {
         }}
       >
         {diseases.map((d, i) => {
-          const s = spring({frame: f - 100 - i * 8, fps, config: {damping: 12}});
+          const s = spring({frame: f - pillsAt - i * 8, fps, config: {damping: 12}});
           return (
             <div
               key={d}
@@ -89,7 +93,6 @@ export const Deadly: React.FC = () => {
           );
         })}
       </div>
-      <Caption text="Mosquitoes kill more humans than any other animal on the planet." end={190} />
     </SceneFrame>
   );
 };

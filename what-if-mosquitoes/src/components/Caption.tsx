@@ -1,22 +1,26 @@
 import React from 'react';
 import {spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {FONT} from '../config/theme';
+import {SceneKey} from '../config/scenes';
+import {hasCaptions, sceneWords} from '../lib/voiceover';
 
-// TikTok-style captions: 3 words at a time, active word highlighted
-export const Caption: React.FC<{text: string; start?: number; end: number}> = ({
-  text,
-  start = 6,
-  end,
-}) => {
+const CHUNK = 3;
+
+/**
+ * TikTok-style captions synced to the narration: 3 words at a time, with the
+ * word being spoken highlighted.
+ */
+export const Caption: React.FC<{scene: SceneKey}> = ({scene}) => {
   const f = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const words = text.split(' ');
-  if (f < start || f > end + 10) return null;
-  const per = (end - start) / words.length;
-  const idx = Math.min(words.length - 1, Math.floor((f - start) / per));
-  const chunkStart = Math.floor(idx / 3) * 3;
-  const chunk = words.slice(chunkStart, chunkStart + 3);
-  const pop = spring({frame: f - (start + chunkStart * per), fps, config: {damping: 12, mass: 0.6}});
+  const words = sceneWords(scene);
+  if (!hasCaptions(scene) || words.length === 0) return null;
+  if (f < words[0].start || f > words[words.length - 1].end + 10) return null;
+  let idx = words.findIndex((w) => f < w.end);
+  if (idx === -1) idx = words.length - 1;
+  const chunkStart = Math.floor(idx / CHUNK) * CHUNK;
+  const chunk = words.slice(chunkStart, chunkStart + CHUNK).map((w) => w.text);
+  const pop = spring({frame: f - words[chunkStart].start, fps, config: {damping: 12, mass: 0.6}});
   return (
     <div
       style={{

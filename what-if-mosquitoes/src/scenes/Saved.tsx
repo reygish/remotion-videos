@@ -3,7 +3,6 @@ import {interpolate, useCurrentFrame} from 'remotion';
 import {SCENES} from '../config/scenes';
 import {clamp, rand} from '../lib/math';
 import {SceneFrame} from '../components/SceneFrame';
-import {Caption} from '../components/Caption';
 import {Headline} from '../components/Headline';
 import {Person} from '../components/Person';
 
@@ -41,7 +40,6 @@ export const Saved: React.FC = () => {
           );
         })}
       </div>
-      <Caption text="Hundreds of thousands of lives saved. Every single year." end={165} />
     </SceneFrame>
   );
 };

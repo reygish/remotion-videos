@@ -2,13 +2,15 @@ import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
 import {SCENES} from '../config/scenes';
 import {clamp, rand} from '../lib/math';
+import {cue} from '../lib/voiceover';
 import {SceneFrame} from '../components/SceneFrame';
 import {Headline} from '../components/Headline';
-import {Caption} from '../components/Caption';
 
 /** Arctic landscape: migrating bird flocks fly over as the mosquito swarm cloud fades out. */
 export const Arctic: React.FC = () => {
   const f = useCurrentFrame();
+  // The swarm fades as the narrator says "That buffet would vanish".
+  const vanishAt = cue('arctic', 'buffet');
   return (
     <SceneFrame duration={SCENES.arctic} bg="linear-gradient(#8ec5fc 0%, #e0f0ff 55%, #ffffff 100%)">
       {/* mountains */}
@@ -52,7 +54,7 @@ export const Arctic: React.FC = () => {
               height: 6,
               borderRadius: 3,
               background: '#22313f',
-              opacity: interpolate(f, [100, 150], [0.8, 0], clamp),
+              opacity: interpolate(f, [vanishAt, vanishAt + 40], [0.8, 0], clamp),
             }}
           />
         );
@@ -62,7 +64,6 @@ export const Arctic: React.FC = () => {
         <br />
         GOES <span style={{color: '#e8590c'}}>QUIET</span>
       </Headline>
-      <Caption text="Huge Arctic swarms feed millions of migrating birds every summer. That buffet would vanish." end={190} />
     </SceneFrame>
   );
 };

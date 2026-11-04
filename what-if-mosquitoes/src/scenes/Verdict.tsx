@@ -3,16 +3,20 @@ import {AbsoluteFill, Easing, interpolate, spring, useCurrentFrame, useVideoConf
 import {FONT} from '../config/theme';
 import {SCENES} from '../config/scenes';
 import {clamp} from '../lib/math';
+import {cue} from '../lib/voiceover';
 import {SceneFrame} from '../components/SceneFrame';
 import {Headline} from '../components/Headline';
-import {Caption} from '../components/Caption';
 
 /** Closing verdict: a species bar showing few mosquitoes bite humans, then the "nature would adapt" end card. */
 export const Verdict: React.FC = () => {
   const f = useCurrentFrame();
+  // Bar fills on "3,500", note on "only", end card on "Most scientists".
+  const barAt = cue('verdict', '3,500');
+  const noteAt = cue('verdict', 'only');
+  const endAt = cue('verdict', 'Most');
   const {fps} = useVideoConfig();
-  const bar = interpolate(f, [30, 90], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
-  const end = spring({frame: f - 170, fps, config: {damping: 12}});
+  const bar = interpolate(f, [barAt, barAt + 50], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
+  const end = spring({frame: f - endAt, fps, config: {damping: 12}});
   return (
     <SceneFrame duration={SCENES.verdict} bg="radial-gradient(circle at 50% 40%, #213a2a 0%, #070d09 75%)">
       <Headline top={190} size={92}>
@@ -45,7 +49,7 @@ export const Verdict: React.FC = () => {
             fontSize: 42,
             color: '#ff8a8a',
             marginTop: 18,
-            opacity: interpolate(f, [90, 105], [0, 1], clamp),
+            opacity: interpolate(f, [noteAt, noteAt + 15], [0, 1], clamp),
           }}
         >
           Only a small fraction bite humans
@@ -84,11 +88,6 @@ export const Verdict: React.FC = () => {
           </div>
         </div>
       </AbsoluteFill>
-      <Caption
-        text="Other insects would likely fill the gap. Would you delete them? Comment below."
-        start={170}
-        end={255}
-      />
     </SceneFrame>
   );
 };

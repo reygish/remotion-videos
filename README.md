@@ -4,7 +4,7 @@ Short vertical videos (1080×1920, 30 fps) built with [Remotion](https://www.rem
 
 | Folder | Video | Length |
 |---|---|---|
-| [`what-if-mosquitoes/`](what-if-mosquitoes) | What if mosquitoes didn't exist? | 47s |
+| [`what-if-mosquitoes/`](what-if-mosquitoes) | What if mosquitoes didn't exist? | 62s, Kokoro voiceover |
 
 ## Working on a video
 

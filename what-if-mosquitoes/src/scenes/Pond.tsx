@@ -3,16 +3,20 @@ import {interpolate, useCurrentFrame} from 'remotion';
 import {FONT} from '../config/theme';
 import {SCENES} from '../config/scenes';
 import {clamp, rand} from '../lib/math';
+import {cue} from '../lib/voiceover';
 import {SceneFrame} from '../components/SceneFrame';
 import {Headline} from '../components/Headline';
-import {Caption} from '../components/Caption';
 import {Fish} from '../components/Fish';
 
 /** Underwater pond: wriggling mosquito larvae fade away, leaving swimming fish hungry and confused. */
 export const Pond: React.FC = () => {
   const f = useCurrentFrame();
-  const larvaeFade = interpolate(f, [70, 120], [1, 0], clamp);
-  const qPop = interpolate(f, [120, 135], [0, 1], clamp);
+  // Labels appear on "Fish"; larvae vanish on "Some of them", fish is puzzled on "hungry".
+  const labelsAt = cue('pond', 'Fish');
+  const vanishAt = cue('pond', 'Some');
+  const hungryAt = cue('pond', 'hungry');
+  const larvaeFade = interpolate(f, [vanishAt, hungryAt + 5], [1, 0], clamp);
+  const qPop = interpolate(f, [hungryAt, hungryAt + 15], [0, 1], clamp);
   const fishX = 140 + Math.sin(f / 30) * 260;
   return (
     <SceneFrame duration={SCENES.pond} bg="linear-gradient(#0d2a3a 0%, #0d2a3a 38%, #0a4a5c 38%, #04202b 100%)">
@@ -93,14 +97,13 @@ export const Pond: React.FC = () => {
               background: '#5ee7ff',
               padding: '10px 28px',
               borderRadius: 40,
-              opacity: interpolate(f, [30 + i * 10, 40 + i * 10], [0, 1], clamp),
+              opacity: interpolate(f, [labelsAt + i * 10, labelsAt + 10 + i * 10], [0, 1], clamp),
             }}
           >
             {t}
           </div>
         ))}
       </div>
-      <Caption text="Mosquito larvae feed fish, frogs and dragonflies in ponds all over the world. Some fish would go hungry." end={220} />
     </SceneFrame>
   );
 };

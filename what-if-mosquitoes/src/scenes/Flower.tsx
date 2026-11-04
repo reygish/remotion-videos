@@ -2,17 +2,19 @@ import React from 'react';
 import {AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {SCENES} from '../config/scenes';
 import {clamp} from '../lib/math';
+import {cue} from '../lib/voiceover';
 import {SceneFrame} from '../components/SceneFrame';
 import {Headline} from '../components/Headline';
-import {Caption} from '../components/Caption';
 import {Mosquito} from '../components/Mosquito';
 
 /** A flower blooms, then wilts as its mosquito pollinator flies off and fades away. */
 export const Flower: React.FC = () => {
   const f = useCurrentFrame();
+  // The mosquito leaves on "rely", then the flower wilts.
+  const leaveAt = cue('flower', 'rely');
   const {fps} = useVideoConfig();
   const bloom = spring({frame: f - 10, fps, config: {damping: 15}});
-  const wilt = interpolate(f, [110, 160], [0, 1], clamp);
+  const wilt = interpolate(f, [leaveAt + 15, leaveAt + 55], [0, 1], clamp);
   return (
     <SceneFrame duration={SCENES.flower} bg="radial-gradient(circle at 50% 50%, #2f1d4a 0%, #0f0818 75%)">
       <Headline top={190} size={84}>
@@ -44,12 +46,11 @@ export const Flower: React.FC = () => {
           position: 'absolute',
           left: 540 + Math.sin(f / 12) * 180,
           top: 760 + Math.cos(f / 9) * 60,
-          opacity: interpolate(f, [90, 110], [1, 0], clamp),
+          opacity: interpolate(f, [leaveAt, leaveAt + 15], [1, 0], clamp),
         }}
       >
         <Mosquito size={150} seed={7} />
       </div>
-      <Caption text="Male mosquitoes drink nectar, and some Arctic orchids rely on them to pollinate." end={165} />
     </SceneFrame>
   );
 };

@@ -1,0 +1,13 @@
+{
+  "voice": "af_heart",
+  "speed": 1.08,
+  "scenes": {
+    "hook": {"text": "What if mosquitoes just... didn't exist?", "captions": false},
+    "deadly": {"text": "Mosquitoes are the deadliest animal on Earth. Malaria alone kills around 600,000 people every year. And that's before dengue, Zika, West Nile and yellow fever."},
+    "saved": {"text": "Delete them overnight, and hundreds of thousands of lives are saved. Every single year."},
+    "pond": {"text": "But there's a catch. Mosquito larvae are food. Fish, frogs and dragonflies eat them in ponds all over the world. Some of them would go hungry."},
+    "arctic": {"text": "In the Arctic, mosquito swarms get so huge they feed millions of migrating birds every summer. That buffet would vanish."},
+    "flower": {"text": "And male mosquitoes don't bite. They drink nectar, and some Arctic orchids rely on them to pollinate."},
+    "verdict": {"text": "So, would nature collapse? Probably not. Of about 3,500 species, only a small fraction bite humans. Most scientists think nature would adapt, and other insects would fill the gap. So... would you delete them? Comment below."}
+  }
+}
