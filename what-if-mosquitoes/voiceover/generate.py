@@ -1,108 +1,85 @@
-"""Generate the voiceover with Kokoro (ONNX) and write caption timings.
+"""Generate the voiceover with Kokoro and write caption timings.
 
 Reads   voiceover/script.json
 Writes  public/voiceover/<scene>.mp3   one audio clip per scene
         src/config/voiceover.json      clip lengths + per-word timings (seconds)
 
+Requires Python 3.10-3.12 and ffmpeg. The Kokoro-82M model is downloaded from
+Hugging Face on first run.
+
 Usage:
     pip install -r voiceover/requirements.txt
-    python voiceover/generate.py --models /path/to/kokoro-model-dir
-
-The model dir must contain kokoro-v1.0.onnx and voices-v1.0.bin from
-https://github.com/thewh1teagle/kokoro-onnx/releases/tag/model-files-v1.0
+    python voiceover/generate.py
 """
-import argparse
 import json
-import re
 import subprocess
 import tempfile
 from pathlib import Path
 
 import numpy as np
 import soundfile as sf
-from kokoro_onnx import Kokoro
+from kokoro import KPipeline
 
 ROOT = Path(__file__).resolve().parent.parent
 SCRIPT = ROOT / "voiceover" / "script.json"
 AUDIO_DIR = ROOT / "public" / "voiceover"
 TIMINGS = ROOT / "src" / "config" / "voiceover.json"
-
-# Silence inserted after each sentence, by its final punctuation (seconds).
-PAUSE_AFTER = {"?": 0.35, "!": 0.3, ".": 0.28, "…": 0.4}
-SILENCE_DB = 0.01  # amplitude below which audio counts as silence
+SAMPLE_RATE = 24000
 
 
-def split_sentences(text: str) -> list[str]:
-    """Split on sentence-ending punctuation, keeping '...' with its sentence."""
-    parts = re.findall(r".+?(?:\.\.\.|[.?!]|$)(?=\s|$)", text)
-    return [p.strip() for p in parts if p.strip()]
-
-
-def word_weight(word: str) -> float:
-    """Rough spoken length of a word: letters/digits, plus a pause for punctuation."""
-    core = re.sub(r"[^\w]", "", word)
-    weight = len(core) + 2
-    if any(ch.isdigit() for ch in core):
-        weight += len(core) * 2  # numbers are read out as several words
-    if word.endswith((",", ";", ":")):
-        weight += 3
-    if word.endswith("..."):
-        weight += 5
-    return weight
-
-
-def speech_bounds(audio: np.ndarray, sr: int) -> tuple[float, float]:
-    """Start/end (s) of the audible part of a clip."""
-    loud = np.flatnonzero(np.abs(audio) > SILENCE_DB)
-    if loud.size == 0:
-        return 0.0, len(audio) / sr
-    return loud[0] / sr, loud[-1] / sr
+def timed_words(tokens, offset: float) -> list[dict]:
+    """Turn Kokoro tokens into caption words, gluing punctuation onto the word before it."""
+    words: list[dict] = []
+    for tok in tokens:
+        is_punct = not any(ch.isalnum() for ch in tok.text)
+        if is_punct and words:
+            words[-1]["text"] += tok.text
+            continue
+        if tok.start_ts is None or tok.end_ts is None:
+            # Rare: no timing for this token. Place it right after the previous word.
+            prev_end = words[-1]["end"] if words else offset
+            words.append({"text": tok.text, "start": prev_end, "end": prev_end + 0.25})
+            continue
+        words.append({
+            "text": tok.text,
+            "start": round(offset + tok.start_ts, 3),
+            "end": round(offset + tok.end_ts, 3),
+        })
+    return words
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--models", required=True, help="dir with kokoro-v1.0.onnx + voices-v1.0.bin")
-    args = parser.parse_args()
-    models = Path(args.models)
-
     config = json.loads(SCRIPT.read_text())
-    kokoro = Kokoro(str(models / "kokoro-v1.0.onnx"), str(models / "voices-v1.0.bin"))
+    voice, speed = config["voice"], config["speed"]
+    # lang_code 'a' = American English, 'b' = British English (match the voice prefix).
+    pipeline = KPipeline(lang_code=voice[0], repo_id="hexgrad/Kokoro-82M")
     AUDIO_DIR.mkdir(parents=True, exist_ok=True)
 
-    timings: dict = {"voice": config["voice"], "scenes": {}}
+    timings: dict = {"voice": voice, "scenes": {}}
     for key, scene in config["scenes"].items():
         chunks: list[np.ndarray] = []
         words: list[dict] = []
-        cursor = 0.0
-        sr = 24000
-        for sentence in split_sentences(scene["text"]):
-            audio, sr = kokoro.create(sentence, voice=config["voice"], speed=config["speed"], lang="en-us")
-            start, end = speech_bounds(audio, sr)
-            tokens = sentence.split()
-            weights = [word_weight(t) for t in tokens]
-            total = sum(weights)
-            t = cursor + start
-            for token, w in zip(tokens, weights):
-                dur = (end - start) * w / total
-                words.append({"text": token, "start": round(t, 3), "end": round(t + dur, 3)})
-                t += dur
-            pause = PAUSE_AFTER.get(sentence[-1], 0.2)
-            chunks += [audio, np.zeros(int(pause * sr), dtype=np.float32)]
-            cursor += len(audio) / sr + pause
+        offset = 0.0
+        # Kokoro may split long text into several segments; timestamps are per segment.
+        for result in pipeline(scene["text"], voice=voice, speed=speed):
+            audio = result.audio.cpu().numpy() if hasattr(result.audio, "cpu") else np.asarray(result.audio)
+            words += timed_words(result.tokens, offset)
+            chunks.append(audio)
+            offset += len(audio) / SAMPLE_RATE
 
-        clip = np.concatenate(chunks[:-1])  # drop the trailing pause
+        clip = np.concatenate(chunks)
         with tempfile.NamedTemporaryFile(suffix=".wav") as wav:
-            sf.write(wav.name, clip, sr)
+            sf.write(wav.name, clip, SAMPLE_RATE)
             subprocess.run(
                 ["ffmpeg", "-loglevel", "error", "-y", "-i", wav.name, "-b:a", "128k", str(AUDIO_DIR / f"{key}.mp3")],
                 check=True,
             )
         timings["scenes"][key] = {
-            "duration": round(len(clip) / sr, 3),
+            "duration": round(len(clip) / SAMPLE_RATE, 3),
             "captions": scene.get("captions", True),
             "words": words,
         }
-        print(f"{key:8s} {len(clip) / sr:5.2f}s  {len(words)} words")
+        print(f"{key:8s} {len(clip) / SAMPLE_RATE:5.2f}s  {len(words)} words")
 
     TIMINGS.write_text(json.dumps(timings, indent=2) + "\n")
     print(f"wrote {TIMINGS.relative_to(ROOT)}")

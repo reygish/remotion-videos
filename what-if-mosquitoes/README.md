@@ -1,6 +1,6 @@
 # What if mosquitoes didn't exist?
 
-A 62-second vertical (1080×1920, 30 fps) short video built with [Remotion](https://www.remotion.dev), narrated with [Kokoro](https://github.com/thewh1teagle/kokoro-onnx) text-to-speech.
+A 62-second vertical (1080×1920, 30 fps) short video built with [Remotion](https://www.remotion.dev), narrated with [Kokoro](https://github.com/hexgrad/kokoro) text-to-speech.
 
 ## Commands
 
@@ -57,16 +57,16 @@ public/voiceover/          Generated narration clips (one mp3 per scene)
 
 ## Voiceover
 
-1. Edit `voiceover/script.json`. Voices: `af_heart` (default), `af_bella`, `am_michael`, `am_onyx`, `bm_george`, and more.
-2. Download `kokoro-v1.0.onnx` and `voices-v1.0.bin` from the [kokoro-onnx model release](https://github.com/thewh1teagle/kokoro-onnx/releases/tag/model-files-v1.0) into a folder.
-3. Regenerate (needs Python and ffmpeg):
+1. Edit `voiceover/script.json`. Voices: `af_heart` (default), `af_bella`, `am_michael`, `am_onyx`, `bm_george`, and more. The first letter picks the accent (`a` American, `b` British).
+2. Regenerate. This needs **Python 3.10 to 3.12** (kokoro doesn't support 3.13 yet) and ffmpeg. The model downloads from Hugging Face on first run.
    ```bash
+   python3.12 -m venv .venv && source .venv/bin/activate
    pip install -r voiceover/requirements.txt
-   python voiceover/generate.py --models /path/to/that/folder
+   python voiceover/generate.py
    ```
-4. `npm run render`. Scene lengths, captions and word-cued animations update automatically.
+3. `npm run render`. Scene lengths, captions and word-cued animations update automatically.
 
-Caption word timings are estimated within each sentence (sentence boundaries come from the audio), so they are close but not frame-perfect.
+Kokoro returns the exact start and end of every spoken word, so captions are timed to the audio.
 
 ## Making changes
 
