@@ -4,7 +4,7 @@
   "description": "Vertical What-If short video built with Remotion",
   "scripts": {
     "studio": "remotion studio src/index.ts",
-    "render": "remotion render src/index.ts WhatIfMosquitoes out/what-if-mosquitoes.mp4 --codec=h264 --browser-executable=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell",
+    "render": "remotion render src/index.ts WhatIfMosquitoes out/what-if-mosquitoes.mp4 --codec=h264",
     "typecheck": "tsc -p ."
   },
   "keywords": [],
@@ -19,5 +19,8 @@
   "devDependencies": {
     "@types/react": "^18.3.12",
     "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

@@ -10,7 +10,7 @@ A 62-second vertical (1080×1920, 30 fps) short video built with [Remotion](http
 | `npm run render` | Renders `out/what-if-mosquitoes.mp4` |
 | `npm run typecheck` | Type-checks the project |
 
-The `render` script points at this cloud container's Chromium. On your own machine, drop the `--browser-executable` flag.
+Requires Node.js 18+. Remotion downloads its own headless browser and ffmpeg on first render.
 
 ## Layout
 
