@@ -1,0 +1,14 @@
+{
+  "voice": "am_michael",
+  "speed": 1.1,
+  "scenes": {
+    "hook": {"text": "What if you could run like the Flash, all the way from Los Angeles to New York?", "captions": false},
+    "walk": {"text": "It's about 3,900 kilometers in a straight line. Walking nonstop, that's 33 days.", "captions": true},
+    "sprint": {"text": "At Usain Bolt's top speed, 45 kilometers an hour, you'd still need over three and a half days.", "captions": true},
+    "mach1": {"text": "Hit 1,235 kilometers an hour and you break the sound barrier. Every town you pass gets a sonic boom. New York is now three hours away.", "captions": true},
+    "mach10": {"text": "At Mach 10, the air in front of you can't get out of the way. It slams together and heats up to nearly 6,000 degrees, as hot as the surface of the Sun. Nineteen minutes, if you survive.", "captions": true},
+    "orbit": {"text": "Push to 7.9 kilometers per second, and something weird happens. The Earth curves away beneath you faster than you can fall. Your feet leave the ground. You're in orbit.", "captions": true},
+    "onesecond": {"text": "And to do it like the Flash, in one second? That's over 11,000 times the speed of sound. Hugging the Earth's curve would crush you with 250,000 g. And stopping in New York would release the energy of 10 Hiroshima bombs.", "captions": true},
+    "ending": {"text": "So the fastest way to New York? Take a plane. Five hours. Follow for more what-ifs.", "captions": true}
+  }
+}

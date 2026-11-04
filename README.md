@@ -8,6 +8,7 @@ Short vertical videos (1080×1920, 30 fps) built with [Remotion](https://www.rem
 | [`what-if-chernobyl/`](what-if-chernobyl) | What if Chernobyl never happened? | 65s, Kokoro voiceover |
 | [`what-if-hotter-sun/`](what-if-hotter-sun) | What if the Sun was one degree hotter? | 65s, Kokoro voiceover |
 | [`what-if-hotter-sun-3d/`](what-if-hotter-sun-3d) | What if the Sun was one degree hotter? (3D) | 65s, Three.js 3D Sun and Earth |
+| [`what-if-flash-run/`](what-if-flash-run) | What if you ran like the Flash from LA to New York? | 80s, first-person 3D run with HUD |
 
 ## Working on a video
 
