@@ -4,7 +4,9 @@ Short vertical videos (1080×1920, 30 fps) built with [Remotion](https://www.rem
 
 | Folder | Video | Length |
 |---|---|---|
-| [`what-if-mosquitoes/`](what-if-mosquitoes) | What if mosquitoes didn't exist? | 62s, Kokoro voiceover |
+| [`what-if-mosquitoes/`](what-if-mosquitoes) | What if mosquitoes didn't exist? | 63s, Kokoro voiceover |
+| [`what-if-chernobyl/`](what-if-chernobyl) | What if Chernobyl never happened? | 65s, Kokoro voiceover |
+| [`what-if-hotter-sun/`](what-if-hotter-sun) | What if the Sun was one degree hotter? | 65s, Kokoro voiceover |
 
 ## Working on a video
 

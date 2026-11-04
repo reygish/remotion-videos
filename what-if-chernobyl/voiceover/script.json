@@ -1,0 +1,13 @@
+{
+  "voice": "am_michael",
+  "speed": 1.05,
+  "scenes": {
+    "hook": {"text": "What if Chernobyl never happened?", "captions": false},
+    "night": {"text": "On April 26, 1986, a safety test at reactor four went wrong, and the reactor exploded."},
+    "toll": {"text": "31 people died in the immediate aftermath. Pripyat's 49,000 people were evacuated, and about 350,000 were relocated in all."},
+    "pripyat": {"text": "But imagine the test went fine. Pripyat could still be a living city, and the exclusion zone could be farmland."},
+    "nuclear": {"text": "Chernobyl made the world fear nuclear power. Italy voted to quit it in 1987. Without that fear, more reactors might have been built, and less coal burned."},
+    "soviet": {"text": "Gorbachev wrote that Chernobyl was perhaps the real cause of the Soviet collapse. Without it, the USSR might have lasted longer."},
+    "wildlife": {"text": "The twist? Wolves, lynx and Przewalski's horses now thrive in the empty zone. That refuge wouldn't exist. So, would the world be better? Comment below."}
+  }
+}
